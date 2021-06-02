@@ -23,6 +23,22 @@ const userSchema = new mongoose.Schema({
     avatar: {
         type: String,
         default: "https://res.cloudinary.com/clearnteams/image/upload/v1613645036/avatar/294-2947257_interface-icons-user-avatar-profile-user-avatar-png_aefim7.png"
+    },
+    frequencyList: {
+        type: Array,
+        default: new Array(5000).fill(false)
+    },
+    frequencyCount: {
+        type: Number,
+        default: 0
+    },
+    tabIndex: {
+        type: Number,
+        default: 0
+    },
+    isSimplified: {
+        type: Boolean,
+        default: true
     }
 }, {
     timestamps: true

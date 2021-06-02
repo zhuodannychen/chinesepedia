@@ -77,7 +77,7 @@ function Login () {
 
     return (
         <div className="login_page">
-            <h2>Login</h2>
+            <h2 style={{marginTop: "120px"}}>Login</h2>
             {err && showErrMsg(err)}
             {success && showSuccessMsg(success)}
 

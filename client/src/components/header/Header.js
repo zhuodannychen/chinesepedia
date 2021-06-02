@@ -42,7 +42,9 @@ function Header () {
             </div>
 
             <ul style={transForm}>
-                <li><Link className="link" to="/words">Word List</Link></li>
+                <li><Link className="link" to="/about">About</Link></li>
+                <li><Link className="link" to="/test">Quick Test</Link></li>
+                <li><Link className="link" to="/freqword">Word List</Link></li>
                 {
                     isLogged
                     ? userLink()

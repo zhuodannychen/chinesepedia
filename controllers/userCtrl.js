@@ -165,9 +165,9 @@ const userCtrl = {
     },
     updateUser: async (req, res) => {
         try {
-            const {name, avatar} = req.body
+            const {name, avatar, frequencyCount, frequencyList, tabIndex, isSimplified} = req.body
             await Users.findOneAndUpdate({_id: req.user.id}, {
-                name, avatar
+                name, avatar, frequencyCount, frequencyList, tabIndex, isSimplified
             })
 
             res.json({msg: "Update successfully!"})
@@ -195,6 +195,12 @@ const userCtrl = {
         } catch (err) {
             return res.status(500).json({msg: err.message}) 
         }
+    },
+    infor_id: async (req, res) => {
+        await Users.findById(req.params.id, (error, data) => {
+            if (error) return next(error)
+            else return res.json(data)
+        })
     },
     googleLogin: async (req, res) => {
         try {

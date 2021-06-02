@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import {useSelector, useDispatch} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import {isLength, isMatch} from '../../utils/validation/Validation'
 import {showSuccessMsg, showErrMsg} from '../../utils/notification/Notification'
 import {fetchAllUsers, dispatchGetAllUsers} from '../../../redux/actions/usersAction'
@@ -27,6 +27,7 @@ function Profile() {
     const [avatar, setAvatar] = useState(false)
     const [loading, setLoading] = useState(false)
     const [callback, setCallback] = useState(false)
+    const history = useHistory()
 
     const dispatch = useDispatch()
 
@@ -36,7 +37,20 @@ function Profile() {
                 dispatch(dispatchGetAllUsers(res))
             })
         }
-    },[token, isAdmin, dispatch, callback])
+
+        if (user.length !== 0) {
+            axios.get('/user/infor_id/' + user._id)
+                .then((response) => {
+                    const result = response.data
+                    user.frequencyCount = result.frequencyCount
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+
+            history.push('/profile')
+        }
+    },[user, token, isAdmin, dispatch, callback])
 
     const handleChange = e => {
         const {name, value} = e.target
@@ -76,7 +90,9 @@ function Profile() {
         try {
             axios.patch('/user/update', {
                 name: name ? name : user.name,
-                avatar: avatar ? avatar : user.avatar
+                avatar: avatar ? avatar : user.avatar,
+                frequencyCount: user.frequencyCount,
+                frequencyList: user.frequencyList
             },{
                 headers: {Authorization: token}
             })
@@ -186,7 +202,7 @@ function Profile() {
                 <h2>{isAdmin ? "Users" : "My Stats"}</h2>
 
                 <div style={{overflowX: "auto"}}>
-                    <h6>{!isAdmin ? "Frequency List Count" : ""}</h6>
+                    <h6>{!isAdmin ? "Freq count: " + user.frequencyCount : ""}</h6>
                     <h6>{!isAdmin ? "HSK Count" : ""}</h6>
                     <table className="customers">
                         {isAdmin ? <thead>

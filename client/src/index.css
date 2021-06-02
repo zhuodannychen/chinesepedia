@@ -44,3 +44,5 @@ button {
 /* ----------------- Profile ------------------- */
 @import url("./components/body/profile/profile.css");
   
+/* ----------------- Grid Display ------------------- */
+@import url("./components/body/freqword/chargrid.css");

@@ -1,17 +1,19 @@
 import React, {useEffect} from 'react'
-import {BrowserRouter as Router} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route, useLocation} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import {dispatchLogin, fetchUser, dispatchGetUser} from './redux/actions/authAction'
 
 import Header from './components/header/Header'
 import Body from './components/body/Body'
+import Freqword from './components/body/freqword/Freqword'
+import Test from './components/body/test/Test'
+import About from './components/body/about/About'
 import axios from 'axios'
 
 function App() {
   const dispatch = useDispatch()
   const token = useSelector(state => state.token)
   const auth = useSelector(state => state.auth)
-
 
   useEffect(() => {
     const firstLogin = localStorage.getItem('firstLogin')
@@ -40,7 +42,12 @@ function App() {
   return (
     <Router>
         <div className="App">
-            <Header />
+            <Switch>
+                <Route path="/freqword" component={Freqword} exact />
+                <Route path="/test" component={Test} exact />
+                <Route path="/about" component={About} exact />
+                <Route path="/" component={Header} />
+            </Switch>
             <Body />
         </div>
     </Router>

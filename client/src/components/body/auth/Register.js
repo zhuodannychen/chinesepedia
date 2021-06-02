@@ -52,7 +52,7 @@ function Register () {
 
     return (
         <div className="login_page">
-            <h2>Register</h2>
+            <h2 style={{marginTop: "120px"}}>Register</h2>
             {err && showErrMsg(err)}
             {success && showSuccessMsg(success)}
 

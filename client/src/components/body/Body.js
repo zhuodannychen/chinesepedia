@@ -27,7 +27,6 @@ function Body () {
                 <Route path="/user/activate/:activation_token" component={ActivationEmail} exact />
                 <Route path="/profile" component={isLogged ? Profile : NotFound} exact />
                 <Route path="/edit_user/:id" component={isAdmin ? EditUser: NotFound} exact />
-                
             </Switch>
         </section>
     )
