@@ -28,7 +28,8 @@ const initialState = {
     tabIndex: 0,
     loading: true,
     isSimplified: true,
-    FreqCharacters: simpCharacters
+    FreqCharacters: simpCharacters,
+    searchBar: ""
 }
 
 function Freqword () {
@@ -165,6 +166,10 @@ function Freqword () {
         history.push('/freqword')
     }
 
+    const handleSearchChange = (event) => {
+        info.searchBar = event.target.value
+    }
+
     if (isLogged && info.loading) {
         return (<h1 style={{marginTop: "100px"}}>Loading...</h1>)
     }
@@ -232,7 +237,13 @@ function Freqword () {
                                     definition={info.currentDefinition}
                                     baiduLink={info.currentBaiduLink}
                                     linedictLink={info.currentLineDictLink}/>
-
+                    <form style={{margin: "20px"}}>
+                        <label>
+                            <input style={{height: "37px", margin: "5px"}} className="input-group-text" type="text" name="searchBar" placeholder="Search" value={info.searchBar} onChange={e => setInfo({...info, searchBar: e.target.value})}/>
+                        </label>
+                        
+                        <a className="btn btn-primary" href={"https://google.com/search?q=" + info.searchBar} target="_blank" rel="noopener noreferrer">Submit</a>
+                    </form>
                 </div>
             </div>
         </div>
