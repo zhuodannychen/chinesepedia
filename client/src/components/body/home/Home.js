@@ -2,8 +2,10 @@ import React from 'react'
 
 function Home() {
     return (
-        <div class="container-fluid">
-            <h1 style={{textAlign: "center"}}>Welcome to Chinesepedia!</h1>
+        <div style={{
+            paddingTop: "17%",
+            }} className="container-fluid">
+            <h1 style={{fontSize: "50px", textAlign: "center"}}>Welcome to Chinesepedia!</h1>
         </div>
     )
 }

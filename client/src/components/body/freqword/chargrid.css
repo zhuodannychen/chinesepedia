@@ -32,4 +32,17 @@
     .char-display a {
         font-size: 7px;
     }
+
+    .input-group-text {
+        padding: 0;
+        width: 80px;
+    }
+
+    .backArrow {
+        font-size: 9px;
+    }
+
+    .charType {
+        font-size: 9px;
+    }
 }

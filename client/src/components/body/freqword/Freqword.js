@@ -176,11 +176,11 @@ function Freqword () {
 
     return (
         <div className="container-fluid" style={{marginTop: "5px"}}>
-            <Link to="/">
+            <Link className="backArrow" to="/">
                 <i className="fa fa-arrow-left" style={{margin: "10px"}}></i> Back to home
             </Link>
 
-            <button style={{marginLeft: "20px"}} type="button" className="btn btn-primary btn-sm" onClick={switchType}>Switch to {info.isSimplified ? "Traditional" : "Simplified"}</button>
+            <button style={{marginLeft: "20px"}} type="button" className="charType btn btn-primary btn-sm" onClick={switchType}>Switch to {info.isSimplified ? "Traditional" : "Simplified"}</button>
 
             <div className="row text-center" style={{marginTop: "10px"}}>
                 <Tabs className="col-8" selectedIndex={info.tabIndex} onSelect={tabIndex => setInfo({ ...info, tabIndex })}>
@@ -237,7 +237,7 @@ function Freqword () {
                                     definition={info.currentDefinition}
                                     baiduLink={info.currentBaiduLink}
                                     linedictLink={info.currentLineDictLink}/>
-                    <form style={{margin: "20px"}}>
+                    <form style={{margin: 0}}>
                         <label>
                             <input style={{height: "37px", margin: "5px"}} className="input-group-text" type="text" name="searchBar" placeholder="Search" value={info.searchBar} onChange={e => setInfo({...info, searchBar: e.target.value})}/>
                         </label>

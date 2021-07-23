@@ -34,6 +34,16 @@ button {
     outline: none;
     cursor: pointer;
 }
+
+.searchBar {
+    width: "200px";
+}
+
+@media screen and (max-width: 850px) {
+    .searchBar {
+        width: "100px";
+    }
+}
   
 /* ----------------- Header ------------------- */
 @import url("./components/header/header.css");
