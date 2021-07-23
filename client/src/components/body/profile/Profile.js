@@ -176,7 +176,7 @@ function Profile() {
                     placeholder="Your email address" disabled />
                 </div>
 
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label htmlFor="password">New Password</label>
                     <input type="password" name="password" id="password"
                     placeholder="Your password" value={password} onChange={handleChange} />
@@ -195,7 +195,7 @@ function Profile() {
                     </em>
                 </div>
 
-                <button disabled={loading} onClick={handleUpdate}>Update</button>
+                <button disabled={loading} onClick={handleUpdate}>Update</button> */}
             </div>
 
             <div className="col-right">
@@ -203,7 +203,7 @@ function Profile() {
 
                 <div style={{overflowX: "auto"}}>
                     <h6>{!isAdmin ? "Freq count: " + user.frequencyCount : ""}</h6>
-                    <h6>{!isAdmin ? "HSK Count" : ""}</h6>
+                    {/* <h6>{!isAdmin ? "HSK Count" : ""}</h6> */}
                     <table className="customers">
                         {isAdmin ? <thead>
                             <tr>

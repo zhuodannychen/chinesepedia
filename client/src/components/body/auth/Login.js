@@ -81,7 +81,7 @@ function Login () {
             {err && showErrMsg(err)}
             {success && showSuccessMsg(success)}
 
-            <form onSubmit={handleSubmit}>
+            {/* <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="email">Email Address</label>
                     <input type="text" placeholder="Enter email address" id="email"
@@ -100,7 +100,7 @@ function Login () {
                 </div>
             </form>
 
-            <div className="hr">Or Login With</div>
+            <div className="hr">Or Login With</div> */}
 
             <div className="social">
                 <GoogleLogin
@@ -118,7 +118,7 @@ function Login () {
                 />
             </div>
 
-            <p>New user? <Link to="/register">Register</Link></p>
+            {/* <p>New user? <Link to="/register">Register</Link></p> */}
         </div>
     )
 }

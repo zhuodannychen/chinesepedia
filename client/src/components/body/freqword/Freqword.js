@@ -184,7 +184,7 @@ function Freqword () {
 
             <div className="row text-center" style={{marginTop: "10px"}}>
                 <Tabs className="col-8" selectedIndex={info.tabIndex} onSelect={tabIndex => setInfo({ ...info, tabIndex })}>
-                {!isLogged ? <p style={{background: "#ffcccb", padding: "5px", borderRadius: "5px"}}>Warning! In order to save your progress, you must <Link to="/login">sign in</Link> or <Link to="/register">create an account</Link>.</p> : <></>}
+                {!isLogged ? <p style={{background: "#ffcccb", padding: "5px", borderRadius: "5px"}}>Warning! In order to save your progress, you must <Link to="/login">sign in</Link>.</p> : <></>}
                 <TabList>
                     <Tab>1</Tab>
                     <Tab>2</Tab>
