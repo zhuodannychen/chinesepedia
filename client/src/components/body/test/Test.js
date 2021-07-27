@@ -230,7 +230,10 @@ class Test extends Component {
                             
                         <h3>How many Chinese characters do you know?</h3>
                         <p>Take this 3-minute test to get an estimate of how many Chinese Characters you can recognize!</p>
-                        <p>Clicking a word reveals its definition, which can be used to check if you know the word or not.</p>
+                        <h3>What counts as knowing a character?</h3>
+                        <p>You can consider yourself as knowing a character when you can use it in a sentence. Knowing the Pinyin doesn't count because many characters can be guessed.</p>
+                        <h3>How does it work?</h3>
+                        <p>Click all the characters you know. Clicking a word also reveals its definition on the right, which can be used to check if you know the word or not. Click "continue" to proceed.</p>
                         <div>{this.firstList()}</div>
                         {this.state.screen === 1 && <button style={{marginBottom: "30px"}} className="btn btn-primary btn-block" type="button" onClick={this.handleContinue}>Continue</button>}
                         <div>{this.secondList()}</div>
