@@ -9,6 +9,7 @@ import Freqword from './components/body/freqword/Freqword'
 import Test from './components/body/test/Test'
 import About from './components/body/about/About'
 import axios from 'axios'
+import ReactGa from 'react-ga'
 
 function App() {
   const dispatch = useDispatch()
@@ -38,6 +39,11 @@ function App() {
       getUser()
     }
   },[token, dispatch])
+
+  useEffect(() => {
+      ReactGa.initialize('UA-204791980-1')
+      ReactGa.pageview(window.location.pathname + window.location.search)
+  }, [])
 
   return (
     <Router>
